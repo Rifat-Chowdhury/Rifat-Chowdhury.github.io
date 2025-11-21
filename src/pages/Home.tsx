@@ -51,7 +51,7 @@ const Home: React.FC = () => {
               </div>
               
               <p className="text-gray-600 dark:text-gray-400 text-lg mb-8 max-w-lg">
-              Recent Computer Science graduate skilled in data analytics, QA, IT support, and sales. 
+              Recent Computer Science graduate skilled in data analytics, Quality Assurance, IT support, and sales. 
               I apply my experience from the Ontario Ministry of Transportation, Brock University, 
               and my e-commerce businesses to solve problems and deliver real results.
               </p>
