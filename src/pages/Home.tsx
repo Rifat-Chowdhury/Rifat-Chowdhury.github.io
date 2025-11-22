@@ -31,24 +31,24 @@ const Home: React.FC = () => {
                 Hi, I'm <span className="text-primary-600 dark:text-primary-400">Rifat Chowdhury</span>
               </h1>
               
-              <div className="text-xl md:text-2xl font-medium mb-6 h-12">
-            <TypeAnimation
-              sequence={[
-                'Data Analytics • QA • IT • Sales',
-                2000,
-                'E-Commerce & Tech Innovation',
-                2000,
-                'Turning data into decisions',
-                2000,
-                'Connecting tech, business & customers',
-                2000,
-              ]}
-              wrapper="span"
-              speed={40}
-              repeat={Infinity}
-            />
-
-              </div>
+                <div className="text-xl md:text-2xl font-medium mb-6 h-12">
+    <TypeAnimation
+      sequence={[
+        'Computer Scientist',
+        2000,
+        'AI Enthusiast',
+        2000,
+        'Software Innovator',
+        2000,
+        'E-commerce Entrepreneur',
+        2000,
+      ]}
+      wrapper="span"
+      speed={50}
+      repeat={Infinity}
+      className="text-gray-700 dark:text-gray-300"
+    />
+  </div>
               
               <p className="text-gray-600 dark:text-gray-400 text-lg mb-8 max-w-lg">
               Recent Computer Science graduate skilled in data analytics, Quality Assurance, IT support, and sales. 
