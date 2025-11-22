@@ -27,34 +27,40 @@ const Home: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                Hi, I'm <span className="text-primary-600 dark:text-primary-400">Test</span>
-              </h1>
-              
-              <div className="text-xl md:text-2xl font-medium mb-6 h-12">
-            <TypeAnimation
-              sequence={[
-                'THIS IS A TEST SUBTITLE 123',
-                2000,
-                'E-Commerce & Tech Innovation',
-                2000,
-                'Turning data into decisions',
-                2000,
-                'Connecting tech, business & customers',
-                2000,
-              ]}
-              wrapper="span"
-              speed={40}
-              repeat={Infinity}
-            />
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+  Hi, I'm{" "}
+  <span className="text-primary-600 dark:text-primary-400">
+    Rifat Chowdhury
+  </span>
+</h1>
 
-              </div>
-              
-              <p className="text-gray-600 dark:text-gray-400 text-lg mb-8 max-w-lg">
-              Recent Computer Science graduate skilled in data analytics, QA, IT support, and sales. 
-              I apply my experience from the Ontario Ministry of Transportation, Brock University, 
-              and my e-commerce businesses to solve problems and deliver real results.
-              </p>
+<div className="text-xl md:text-2xl font-medium mb-6 h-12">
+  <TypeAnimation
+    sequence={[
+      "Aspiring Data Analyst",
+      2000,
+      "QA & Testing Specialist",
+      2000,
+      "IT Support & Systems",
+      2000,
+      "Sales-Driven Problem Solver",
+      2000,
+    ]}
+    wrapper="span"
+    speed={50}
+    repeat={Infinity}
+    className="text-gray-700 dark:text-gray-300"
+  />
+</div>
+
+<p className="text-gray-600 dark:text-gray-400 text-lg mb-8 max-w-lg">
+  Recent Computer Science graduate focused on data analytics, QA testing,
+  IT support, and sales-driven problem solving. I combine hands-on
+  experience at the Ontario Ministry of Transportation, Brock University
+  Students’ Union, and multiple e-commerce ventures to turn data into
+  practical, real-world results.
+</p>
+
               
               <div className="flex flex-wrap gap-4">
                 <Button 
