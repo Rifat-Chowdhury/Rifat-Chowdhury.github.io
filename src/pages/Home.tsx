@@ -28,30 +28,30 @@ const Home: React.FC = () => {
               transition={{ duration: 0.5 }}
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                Hi, I'm <span className="text-primary-600 dark:text-primary-400">Rifat Chowdhury</span>
+                Hi, I'm <span className="text-primary-600 dark:text-primary-400">Test</span>
               </h1>
               
-                <div className="text-xl md:text-2xl font-medium mb-6 h-12">
-    <TypeAnimation
-      sequence={[
-        'Computer Scientist',
-        2000,
-        'AI Enthusiast',
-        2000,
-        'Software Innovator',
-        2000,
-        'E-commerce Entrepreneur',
-        2000,
-      ]}
-      wrapper="span"
-      speed={50}
-      repeat={Infinity}
-      className="text-gray-700 dark:text-gray-300"
-    />
-  </div>
+              <div className="text-xl md:text-2xl font-medium mb-6 h-12">
+            <TypeAnimation
+              sequence={[
+                'THIS IS A TEST SUBTITLE 123',
+                2000,
+                'E-Commerce & Tech Innovation',
+                2000,
+                'Turning data into decisions',
+                2000,
+                'Connecting tech, business & customers',
+                2000,
+              ]}
+              wrapper="span"
+              speed={40}
+              repeat={Infinity}
+            />
+
+              </div>
               
               <p className="text-gray-600 dark:text-gray-400 text-lg mb-8 max-w-lg">
-              Recent Computer Science graduate skilled in data analytics, Quality Assurance, IT support, and sales. 
+              Recent Computer Science graduate skilled in data analytics, QA, IT support, and sales. 
               I apply my experience from the Ontario Ministry of Transportation, Brock University, 
               and my e-commerce businesses to solve problems and deliver real results.
               </p>
