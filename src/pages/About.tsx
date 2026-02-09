@@ -453,44 +453,56 @@ const certifications = [
 
 const interests = [
   {
-    title: 'Explainable AI',
-    description: 'Developing methods to make AI systems more transparent and interpretable, enabling users to understand and trust AI decisions.'
-  },
-  {
-    title: 'Reinforcement Learning',
-    description: 'Exploring advanced reinforcement learning algorithms for complex decision-making problems in robotics and autonomous systems.'
-  },
-  {
-    title: 'AI Ethics',
-    description: 'Researching ethical implications of AI systems and developing frameworks for responsible AI development and deployment.'
-  },
-  {
-    title: 'Multimodal Learning',
-    description: 'Investigating approaches for integrating information from multiple modalities (text, image, audio) for more robust AI systems.'
-  },
-  {
-    title: 'Cybersecurity & Privacy',
-    description: 'Exploring AI-driven security solutions to protect digital assets and ensure data privacy in online systems and applications.'
+    title: 'Business Intelligence & KPI Design',
+    description: 'Defining the right metrics for growth, retention, and profitability, then turning them into stakeholder-ready dashboards.'
   },
   {
     title: 'E-commerce Optimization',
-    description: 'Optimizing online sales and customer engagement using AI-driven personalization, automated marketing, and inventory management.'
+    description: 'Improving listings, pricing, and conversion funnels using data-driven experiments and performance analysis.'
   },
   {
-    title: 'Computer Vision & Image Processing',
-    description: 'Developing AI models for real-time image recognition, object detection, and automated visual data analysis.'
+    title: 'Customer & Cohort Analytics',
+    description: 'Segmenting customers to understand lifetime value, churn risk, and repeat-purchase behavior.'
   },
   {
-    title: 'Human-Computer Interaction (HCI)',
-    description: 'Designing AI-powered tools that improve usability and interaction between humans and intelligent systems.'
+    title: 'Forecasting & Demand Planning',
+    description: 'Using time-series trends to plan inventory, promotions, and seasonality-driven campaigns.'
   },
   {
-    title: 'Financial Technology (FinTech)',
-    description: 'Applying AI for stock market predictions, high-frequency trading, and fraud detection in financial transactions.'
+    title: 'Marketing & Attribution Analytics',
+    description: 'Measuring channel performance, ROAS, and campaign lift to guide budget decisions.'
+  },
+  {
+    title: 'Data Quality & Automation',
+    description: 'Building reliable pipelines and validation checks so reports stay accurate and scalable.'
+  },
+  {
+    title: 'Product Analytics',
+    description: 'Analyzing user journeys to identify friction points and prioritize improvements.'
   },
   {
     title: 'Natural Language Processing (NLP)',
-    description: 'Building AI models for sentiment analysis, chatbots, language translation, and automated content generation.'
+    description: 'Using text analytics for reviews, support tickets, and sentiment insights.'
+  },
+  {
+    title: 'Multimodal Learning',
+    description: 'Combining text and image signals to improve merchandising and catalog quality.'
+  },
+  {
+    title: 'Algorithmic Problem Solving',
+    description: 'Applying data structures and algorithms to build efficient, reliable solutions.'
+  },
+  {
+    title: 'Geospatial & Operations Analytics',
+    description: 'Using mapping tools and operational data to support planning, tracking, and decision‑making.'
+  },
+  {
+    title: 'Marketing Analytics',
+    description: 'Measuring campaign performance and audience engagement to improve outreach.'
+  },
+  {
+    title: 'Web Analytics & Reporting',
+    description: 'Tracking site behavior and performance to guide content and UX improvements.'
   }
 ];
 
