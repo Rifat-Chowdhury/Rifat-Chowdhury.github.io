@@ -21,9 +21,9 @@ const Projects: React.FC = () => {
           >
             <h1 className="text-3xl md:text-4xl font-bold mb-6">My Projects</h1>
             <p className="text-gray-700 dark:text-gray-300 text-lg mb-8">
-              Explore a collection of my recent work spanning artificial intelligence, 
-              algorithms, web development, and many more. Each project represents
-              a unique challenge and innovative solution.
+              Explore a collection of my recent work spanning data analysis,
+              SQL, visualization, and web applications. Each project highlights
+              a real dataset, a clear approach, and the insights delivered.
             </p>
           </motion.div>
         </div>
@@ -102,34 +102,48 @@ const Projects: React.FC = () => {
 };
 
 // Sample data
-const tags = ['AI', 'Machine Learning', 'Web Development', 'Recursion Trees'];
+const tags = ['Data Analysis', 'SQL', 'Python', 'Visualization', 'Web App', 'Geospatial'];
 
 export const projects = [
   {
+    id: 'usda-production-analysis',
+    title: 'USDA Production Analysis',
+    description: 'End-to-end SQL data analysis project using SQLite & DBeaver. Includes table creation, CSV imports, data cleaning, and analytical queries on US agricultural production datasets (milk, cheese, coffee, eggs, honey, yogurt).',
+    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=80',
+    tags: ['Data Analysis', 'Python', 'Visualization', 'SQL'],
+    githubUrl: 'https://github.com/Rifat-Chowdhury/USDA-Production-Analysis.git',
+  },
+  {
+    id: 'sql-leetcode',
+    title: 'SQL LeetCode',
+    description: 'A collection of SQL solutions demonstrating joins, aggregations, window functions, and data modeling skills.',
+    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80',
+    tags: ['SQL', 'Data Analysis'],
+    githubUrl: 'https://github.com/Rifat-Chowdhury/SQL-LeetCode',
+  },
+  {
+    id: 'vibemap',
+    title: 'VibeMap',
+    description: 'A data-driven music recommendation system that maps songs by mood and tempo using audio features.',
+    image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80',
+    tags: ['Web App', 'Visualization', 'Geospatial'],
+    githubUrl: 'https://github.com/jeff13in/VibeMap',
+  }
+  ,
+  {
     id: 'pathfinding-visualizer',
     title: 'Pathfinding Visualizer',
-    description: 'An interactive visualization tool for pathfinding algorithms like BFS , DFS, A* & Dijkstra.',
+    description: 'An interactive visualization tool for pathfinding algorithms like BFS, DFS, A* & Dijkstra.',
     image: 'https://images.unsplash.com/photo-1696941495517-6327a4aef380?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bWF6ZSUyMGZpbmRlcnxlbnwwfHwwfHx8MA%3D%3D',
-    tags: ['BFS', 'DFS', 'Dijkstra', 'A*', 'Pathfinding' , 'Recursion Trees'],
+    tags: ['Visualization', 'Web App'],
     githubUrl: 'https://github.com/Rifat-Chowdhury/Pathfinding-Visualizer',
   },
-  /*
-  {
-    id: 'data-visualization',
-    title: 'Data Visualization Dashboard',
-    description: 'Interactive dashboard for visualizing complex datasets with customizable charts. Built with React and D3.js for responsive and dynamic data exploration.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-    tags: ['Data Science', 'Web Development'],
-    githubUrl: 'https://github.com',
-    liveUrl: 'https://example.com'
-  },
-  */
   {
     id: 'postgenerator',
     title: 'Social Media Post Generator',
-    description: 'A bot with many functions such as extracting posts from social media and producing unique ideas, measuring post-performance metrics, offering advice to the user based on the supplied metrics, and decision tree intelligence on post selection.',
+    description: 'A bot that extracts posts, generates ideas, measures performance metrics, and provides decision-tree guidance.',
     image: 'https://images.unsplash.com/photo-1676287571987-2f98ced3e6c4?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Q29udGVudCUyMEdlbmVyYXRvcnxlbnwwfHwwfHx8MA%3D%3D',
-    tags: ['Post Generator', 'Decision Tree Intelligence', 'Social Media' ],
+    tags: ['Data Analysis', 'Web App'],
     githubUrl: 'https://github.com/mc16dn/COSC-4P02-Group-Assignment',
     liveUrl: 'https://www.youtube.com/watch?v=0LPsPId1vhk&feature=youtu.be&themeRefresh=1'
   },
@@ -138,11 +152,10 @@ export const projects = [
     title: 'Portfolio Website',
     description: 'A modern, responsive portfolio website built with React and Tailwind CSS. Features dark mode, animations, and a clean, professional design.',
     image: 'https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-    tags: ['Web Development', 'Javascript', 'React', 'Tailwind CSS' ],
+    tags: ['Web App', 'Visualization'],
     githubUrl: 'https://github.com',
     liveUrl: 'https://example.com'
   }
-
 ];
 
 export default Projects;

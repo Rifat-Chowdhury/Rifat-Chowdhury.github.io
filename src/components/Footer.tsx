@@ -16,9 +16,8 @@ const Footer: React.FC = () => {
               <span className="text-xl font-bold">Portfolio</span>
             </Link>
             <p className="text-gray-600 dark:text-gray-400 mb-4">
-            Recent Computer Science graduate skilled in data analytics, QA, IT support, and sales. 
-              I apply my experience from the Ontario Ministry of Transportation, Brock University, 
-              and my e-commerce businesses to solve problems and deliver real results.
+              Data-focused Computer Science graduate delivering decision ready insights with SQL, Python, Excel, and BI.
+              I build dashboards, automate reporting, and tell data stories that drive business outcomes.
             </p>
             <div className="flex space-x-4">
               <a 

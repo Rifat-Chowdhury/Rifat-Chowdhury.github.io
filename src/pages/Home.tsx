@@ -37,13 +37,13 @@ const Home: React.FC = () => {
 <div className="text-xl md:text-2xl font-medium mb-6 h-12">
   <TypeAnimation
     sequence={[
-      "Aspiring Data Analyst",
+      "Data Analyst",
       2000,
-      "QA & Testing Specialist",
+      "SQL & Data Modeling",
       2000,
-      "IT Support & Systems",
+      "Power BI & Tableau",
       2000,
-      "Sales-Driven Problem Solver",
+      "Statistics & Insights",
       2000,
     ]}
     wrapper="span"
@@ -54,11 +54,10 @@ const Home: React.FC = () => {
 </div>
 
 <p className="text-gray-600 dark:text-gray-400 text-lg mb-8 max-w-lg">
-  Recent Computer Science graduate focused on data analytics, QA testing,
-  IT support, and sales-driven problem solving. I combine hands-on
-  experience at the Ontario Ministry of Transportation, Brock University
-  Students’ Union, and multiple e-commerce ventures to turn data into
-  practical, real-world results.
+  Data-focused Computer Science graduate turning messy data into clear,
+  decision-ready insights. Skilled in SQL, Python, Excel, and BI tools
+  to build dashboards, automate reporting, and tell data stories that
+  drive measurable business outcomes.
 </p>
 
               
@@ -268,24 +267,24 @@ const Home: React.FC = () => {
 // Sample data
 const featuredSkills = [
   {
-    name: 'Artificial Intelligence',
+    name: 'SQL (PostgreSQL, MySQL, SQLite)',
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-brain-circuit"><path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0-1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08 2.5 2.5 0 0 0 4.91.05L12 20V4.5Z"/><path d="M16 8V5c0-1.1.9-2 2-2"/><path d="M12 13h4"/><path d="M12 18h6a2 2 0 0 1 2 2v1"/><path d="M12 8h8a2 2 0 0 0 2-2V5"/></svg>,
-    description: 'Developing intelligent systems that can learn, reason, and adapt.'
+    description: 'Querying, joining, and modeling data for analysis and reporting.'
   },
   {
-    name: 'Machine Learning',
+    name: 'Python (Pandas, NumPy)',
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-network"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>,
-    description: 'Building models that can learn patterns from data and make predictions.'
+    description: 'Cleaning, analyzing, and automating data workflows.'
   },
   {
-    name: 'Software Development',
+    name: 'BI & Visualization',
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-code"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>,
-    description: 'Creating robust, scalable, and efficient software solutions.'
+    description: 'Power BI, Tableau, and data storytelling for stakeholder-ready insights.'
   },
   {
-    name: 'Data Science',
+    name: 'Statistics & Excel',
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-bar-chart-3"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>,
-    description: 'Extracting insights and knowledge from structured and unstructured data.'
+    description: 'Hypothesis testing, KPI tracking, and Excel analytics.'
   }
 ];
 /*
@@ -315,3 +314,4 @@ const featuredProjects = [
 */
 
 export default Home;
+
