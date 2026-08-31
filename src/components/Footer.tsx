@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Twitter, Mail, Code } from 'lucide-react';
+import { Github, Linkedin, Mail, Code } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <ul className="space-y-2">
               <li className="text-gray-600 dark:text-gray-400">
-                Ontario, CA
+                Ontario, Canada
               </li>
               <li>
                 <a 

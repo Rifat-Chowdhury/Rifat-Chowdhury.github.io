@@ -6,12 +6,13 @@ interface SkillCardProps {
   icon: React.ReactNode;
   level: number;
   description: string;
+  className?: string;
 }
 
-const SkillCard: React.FC<SkillCardProps> = ({ name, icon, level, description }) => {
+const SkillCard: React.FC<SkillCardProps> = ({ name, icon, level, description, className = '' }) => {
   return (
     <motion.div 
-      className="card p-6 flex flex-col items-center text-center"
+      className={`card p-6 flex flex-col items-center text-center ${className}`}
       whileHover={{ y: -5 }}
       transition={{ duration: 0.3 }}
     >

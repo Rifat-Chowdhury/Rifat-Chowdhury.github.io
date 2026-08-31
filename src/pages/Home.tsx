@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
-import { Download, ArrowRight, Github, Linkedin, Twitter } from 'lucide-react';
+import { Download, ArrowRight, Github, Linkedin } from 'lucide-react';
 import Button from '../components/Button';
+import ProjectCard from '../components/ProjectCard';
 
-// Import projects from Projects.tsx
-import { projects } from '../pages/Projects';  // Try adjusting this path if needed later
+import { projects } from '../data/projects';
 // Select featured projects dynamically
 const featuredProjects = projects.slice(0, 3); // Change this logic if needed later
 
@@ -217,21 +217,30 @@ const Home: React.FC = () => {
         </div>
       </section>
       */}
-       <section className="py-16 md:py-24 bg-gray-100 dark:bg-gray-900">
-          <div className="container">
-            <h2 className="text-3xl font-bold text-center mb-10">Featured Projects</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {featuredProjects.map((project, index) => (
-                <div key={index} className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
-                  <img src={project.image} alt={project.title} className="w-full h-48 object-cover rounded-md" />
-                  <h3 className="text-xl font-semibold mt-4">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mt-2">{project.description}</p>
-                  <a href={project.githubUrl} className="mt-4 inline-block text-blue-500 hover:text-blue-700">View Project</a>
-                </div>
-              ))}
-            </div>
+      <section className="section bg-gray-50 dark:bg-dark-800">
+        <div className="container">
+          <h2 className="section-title">Featured Projects</h2>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {featuredProjects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                title={project.title}
+                description={project.description}
+                image={project.image}
+                tags={project.tags}
+                githubUrl={project.githubUrl}
+                liveUrl={project.liveUrl}
+                detailsTo={`/projects?project=${project.id}`}
+              />
+            ))}
           </div>
-        </section>
+          <div className="mt-10 text-center">
+            <Button to="/projects" variant="secondary" icon={<ArrowRight className="w-5 h-5" />} iconPosition="right">
+              View All Projects
+            </Button>
+          </div>
+        </div>
+      </section>
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary-600 to-secondary-600 text-white">
         <div className="container text-center">

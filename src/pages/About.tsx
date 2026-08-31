@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Download, Award, BookOpen, Briefcase, GraduationCap } from 'lucide-react';
+import { ArrowUpRight, CalendarDays, Download, Award, BookOpen, Briefcase, Code2, GraduationCap } from 'lucide-react';
 import Button from '../components/Button';
 import SkillCard from '../components/SkillCard';
 
@@ -63,10 +63,45 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Skills Section */}
+      {/* Education Section */}
       <section className="section bg-white dark:bg-dark-700">
         <div className="container">
-          <h2 className="section-title">Technical Skills</h2>
+          <h2 className="section-title inline-flex w-full items-center justify-center gap-3">
+            <GraduationCap className="w-8 h-8 text-primary-600 dark:text-primary-400" />
+            Education
+          </h2>
+
+          <div className="max-w-4xl mx-auto">
+            {education.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="border-l-2 border-primary-300 py-1 pl-6 dark:border-primary-600"
+              >
+                <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
+                  <h3 className="text-xl font-semibold">{item.degree}</h3>
+                  <span className="text-sm font-medium text-primary-700 dark:text-primary-300">
+                    {item.year}
+                  </span>
+                </div>
+                <p className="mt-1 text-gray-700 dark:text-gray-300 font-medium">{item.institution}</p>
+                <p className="mt-2 text-gray-600 dark:text-gray-400">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section className="section bg-gray-50 dark:bg-dark-800">
+        <div className="container">
+          <h2 className="section-title inline-flex w-full items-center justify-center gap-3">
+            <Code2 className="w-8 h-8 text-primary-600 dark:text-primary-400" />
+            Technical Skills
+          </h2>
 
           {/* Updated Grid Layout for Uniform Box Heights */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
@@ -93,125 +128,92 @@ const About: React.FC = () => {
       </section>
 
 
-      {/* Education & Experience Section */}
-      <section className="section bg-gray-50 dark:bg-dark-800">
+      {/* Experience Section */}
+      <section className="section bg-white dark:bg-dark-700">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Education */}
-            <div>
-              <div className="flex items-center mb-8">
-                <GraduationCap className="w-8 h-8 text-primary-600 dark:text-primary-400 mr-4" />
-                <h2 className="text-2xl md:text-3xl font-bold">Education</h2>
-              </div>
+          <div className="max-w-4xl mx-auto">
+            <h2 className="section-title inline-flex w-full items-center justify-center gap-3">
+              <Briefcase className="w-8 h-8 text-primary-600 dark:text-primary-400" />
+              Experience
+            </h2>
 
-              <div className="space-y-8">
-                {education.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="card p-6"
-                  >
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-xl font-semibold">{item.degree}</h3>
-                      <span className="text-sm font-medium px-2 py-1 rounded bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-300">
-                        {item.year}
-                      </span>
+            <div className="space-y-10">
+              {experience.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="relative border-l-2 border-primary-300 py-1 pl-6 dark:border-primary-600"
+                >
+                  <span className="absolute -left-[5px] top-2 h-2 w-2 rounded-full bg-primary-500" aria-hidden="true" />
+                  <div>
+                    <h3 className="text-xl font-semibold">{item.position}</h3>
+                    <p className="mt-1 text-gray-700 dark:text-gray-300 font-medium">{item.company}</p>
+                    <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+                      {item.periods.map((period) => (
+                        <span
+                          key={period}
+                          className="inline-flex items-center gap-1.5 text-sm font-medium text-primary-700 dark:text-primary-300"
+                        >
+                          <CalendarDays className="h-4 w-4" />
+                          {period}
+                        </span>
+                      ))}
                     </div>
-                    <p className="text-gray-700 dark:text-gray-300 font-medium mb-2">{item.institution}</p>
-                    <p className="text-gray-600 dark:text-gray-400">{item.description}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Experience */}
-            <div>
-              <div className="flex items-center mb-8">
-                <Briefcase className="w-8 h-8 text-primary-600 dark:text-primary-400 mr-4" />
-                <h2 className="text-2xl md:text-3xl font-bold">Experience</h2>
-              </div>
-
-              <div className="space-y-8">
-                {experience.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="card p-6"
-                  >
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-xl font-semibold">{item.position}</h3>
-                      <span className="text-sm font-medium px-2 py-1 rounded bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-300">
-                        {item.period}
-                      </span>
-                    </div>
-                    <p className="text-gray-700 dark:text-gray-300 font-medium mb-2">{item.company}</p>
-                    <p className="text-gray-600 dark:text-gray-400">{item.description}</p>
-                  </motion.div>
-                ))}
-              </div>
+                  </div>
+                  <p className="mt-3 text-gray-600 dark:text-gray-400">{item.description}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Certifications Section */}
-      {/*
-      <section className="section bg-white dark:bg-dark-700">
+      <section className="section bg-gray-50 dark:bg-dark-800">
         <div className="container">
-          <div className="flex items-center mb-8">
-            <Award className="w-8 h-8 text-primary-600 dark:text-primary-400 mr-4" />
-            <h2 className="text-2xl md:text-3xl font-bold">Certifications</h2>
-          </div>
+          <h2 className="section-title inline-flex w-full items-center justify-center gap-3">
+            <Award className="w-8 h-8 text-primary-600 dark:text-primary-400" />
+            Certifications
+          </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {certifications.map((cert, index) => (
-              <motion.div
+              <motion.a
                 key={index}
+                href={cert.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="card p-6"
+                className="card group block p-6 transition-colors hover:bg-primary-50 dark:hover:bg-dark-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+                aria-label={`View ${cert.name} credential`}
               >
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-lg font-semibold">{cert.name}</h3>
-                  <span className="text-sm font-medium px-2 py-1 rounded bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-300">
-                    {cert.year}
-                  </span>
+                <div className="flex items-start justify-between gap-4 mb-3">
+                  <h3 className="text-xl font-semibold">{cert.name}</h3>
+                  <ArrowUpRight className="w-5 h-5 shrink-0 text-primary-600 dark:text-primary-400 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 font-medium mb-2">{cert.issuer}</p>
-                {cert.url && (
-                  <a
-                    href={cert.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary-600 dark:text-primary-400 hover:underline inline-flex items-center mt-2"
-                  >
-                    View Certificate
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                  </a>
-                )}
-              </motion.div>
+                <p className="text-gray-700 dark:text-gray-300 font-medium">{cert.issuer}</p>
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">Completed {cert.year}</p>
+                <span className="mt-4 inline-block text-sm font-medium text-primary-600 dark:text-primary-400">View credential</span>
+              </motion.a>
             ))}
           </div>
         </div>
       </section>
-      */}
 
       {/* Interests Section */}
 
-      <section className="section bg-gray-50 dark:bg-dark-800">
+      <section className="section bg-white dark:bg-dark-700">
         <div className="container">
-          <div className="flex items-center mb-8">
-            <BookOpen className="w-8 h-8 text-primary-600 dark:text-primary-400 mr-4" />
-            <h2 className="text-2xl md:text-3xl font-bold">Area of Interests</h2>
-          </div>
+          <h2 className="section-title inline-flex w-full items-center justify-center gap-3">
+            <BookOpen className="w-8 h-8 text-primary-600 dark:text-primary-400" />
+            Areas of Interest
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {interests.map((interest, index) => (
@@ -426,63 +428,67 @@ const experience = [
   {
     position: 'Social Media Coordinator',
     company: 'Golive Music Club, Brock University',
-    period: 'May 2022 - April 2025',
+    periods: ['May 2022 - April 2025'],
     description: 'Designed and managed digital marketing campaigns, creating promotional content using graphic design tools. Increased social media engagement and event participation.'
   },
   {
     position: 'Promotions & Marketing Coordinator',
     company: 'Brock University Student Union',
-    period: 'Sep 2022 - Apr 2023 | Sep 2023 - Apr 2024',
+    periods: ['Sep 2022 - Apr 2023', 'Sep 2023 - Apr 2024'],
     description: 'Helped with the marketing initiatives to enhance student engagement. Organized campus events, increased awareness of student services, and improved promotional outreach.'
   },
   {
     position: 'Corridor Co-op Associate of Operations',
     company: 'Ministry of Transportation',
-    period: 'Jan 2022 - Aug 2022 | May 2023 - Aug 2023',
+    periods: ['Jan 2022 - Aug 2022', 'May 2023 - Aug 2023'],
     description: 'Debugged and tested internal systems, identifying and reporting major issues. Assisted in deploying a mapping tool in ArcGIS for permit tracking and operations management.'
   },
 
   {
     position: 'Customer Service Team Member',
     company: 'KFC',
-    period: 'May 2021 - Dec 2021',
+    periods: ['May 2021 - Dec 2021'],
     description: 'Managed customer service roles, including drive-thru, front cashier, and food preparation. Developed multitasking skills and maintained quality service under high demand.'
   },
   {
     position: 'Store Clerk',
     company: 'Avondale Convenience',
-    period: 'May 2020 - Nov 2020',
+    periods: ['May 2020 - Nov 2020'],
     description: 'Assisted customers with purchases, restocked inventory, and handled transactions. Resolved customer inquiries and maintained a positive store environment.'
   }
 ];
 
-/**
 const certifications = [
   {
-    name: 'TensorFlow Developer Certificate',
+    name: 'SQL for Data Science',
+    issuer: 'University of California, Davis',
+    year: '2025',
+    url: 'https://www.coursera.org/account/accomplishments/verify/9CFHYB6BQFOW'
+  },
+  {
+    name: 'Foundations: Data, Data, Everywhere',
     issuer: 'Google',
-    year: '2021',
-    url: 'https://www.tensorflow.org/certificate'
+    year: '2025',
+    url: 'https://www.coursera.org/account/accomplishments/verify/WN2KC9LHGAIG'
   },
   {
-    name: 'AWS Certified Machine Learning – Specialty',
-    issuer: 'Amazon Web Services',
-    year: '2020',
-    url: 'https://aws.amazon.com/certification/certified-machine-learning-specialty/'
+    name: 'Building AI-Ready Applications with Azure Databases and AI',
+    issuer: 'LinkedIn',
+    year: '2025',
+    url: 'https://www.linkedin.com/learning/certificates/1eb95ac1b79f31fcfffc59cce8663cfbb4a6f67cafd7499de4c7b48a0cdad90f'
   },
   {
-    name: 'Deep Learning Specialization',
-    issuer: 'Coursera (deeplearning.ai)',
-    year: '2019',
-    url: 'https://www.coursera.org/specializations/deep-learning'
-  }
+    name: 'Horizon Ventures | Innovation Accelerator',
+    issuer: 'LiveCase',
+    year: '2025',
+    url: 'https://www.livecase.com/certificate/6780c6c91a4ab2635f5b98ae'
+  },
 ];
-*/
 
 const interests = [
   {
     title: 'Business Intelligence & KPI Design',
-    href: '/projects?project=hr-analytics-dashboard',
+    href: '#/projects?project=hr-analytics-dashboard',
     description: 'Defining the right metrics for growth, retention, and profitability, then turning them into stakeholder-ready dashboards.'
   },
   {
@@ -497,7 +503,7 @@ const interests = [
   },
   {
     title: 'Forecasting & Demand Planning',
-    href: '/projects?projects=weather-wise,weather-trend-forecasting',
+    href: '#/projects?projects=weather-wise,weather-trend-forecasting',
     description: 'Using time-series trends to plan inventory, promotions, and seasonality-driven campaigns.'
   },
   {
@@ -506,7 +512,7 @@ const interests = [
   },
   {
     title: 'Data Quality & Automation',
-    href: '/projects?projects=hr-analytics-dashboard,usda-production-analysis',
+    href: '#/projects?projects=hr-analytics-dashboard,usda-production-analysis',
     description: 'Building reliable pipelines and validation checks so reports stay accurate and scalable.'
   },
   {
@@ -523,12 +529,12 @@ const interests = [
   },
   {
     title: 'Algorithmic Problem Solving',
-    href: '/projects?project=pathfinding-visualizer',
+    href: '#/projects?project=pathfinding-visualizer',
     description: 'Applying data structures and algorithms to build efficient, reliable solutions.'
   },
   {
     title: 'Geospatial & Operations Analytics',
-    href: '/projects?projects=vibemap,weather-wise',
+    href: '#/projects?projects=vibemap,weather-wise',
     description: 'Using mapping tools and operational data to support planning, tracking, and decision‑making.'
   },
   {

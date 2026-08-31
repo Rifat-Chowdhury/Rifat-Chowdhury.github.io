@@ -128,13 +128,6 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
               Projects
             </NavLink>
             <NavLink 
-              to="/publications" 
-              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
-              onClick={() => setIsOpen(false)}
-            >
-              Publications
-            </NavLink>
-            <NavLink 
               to="/contact" 
               className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
               onClick={() => setIsOpen(false)}

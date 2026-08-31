@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useSearchParams } from 'react-router-dom';
 import ProjectCard from '../components/ProjectCard';
+import { projects, projectTags } from '../data/projects';
 
 const Projects: React.FC = () => {
   const [filter, setFilter] = useState<string>('all');
@@ -56,22 +57,21 @@ const Projects: React.FC = () => {
               All Projects
             </button>
             
-            {tags.map((tag, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setSearchParams({});
-                  setFilter(tag);
-                }}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  filter === tag
-                    ? 'bg-primary-600 text-white'
-                    : 'bg-gray-200 dark:bg-dark-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-dark-500'
-                }`}
-              >
-                {tag}
-              </button>
-            ))}
+            <label className="sr-only" htmlFor="project-filter">Filter projects by technology</label>
+            <select
+              id="project-filter"
+              value={filter}
+              onChange={(event) => {
+                setSearchParams({});
+                setFilter(event.target.value);
+              }}
+              className="rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:border-gray-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500 dark:border-dark-400 dark:bg-dark-800 dark:text-gray-200"
+            >
+              <option value="all">Filter by technology</option>
+              {projectTags.map((tag) => (
+                <option key={tag} value={tag}>{tag}</option>
+              ))}
+            </select>
           </div>
 
           {hasProjectFilter && filteredProjects.length > 0 && (
@@ -130,10 +130,8 @@ const Projects: React.FC = () => {
   );
 };
 
-// Sample data
-const tags = ['Data Analysis', 'SQL', 'Python', 'Visualization', 'Web App', 'Geospatial'];
-
-export const projects = [
+/* Legacy project data retained temporarily while the new shared data module is adopted.
+const projects = [
    {
     id: 'vibemap',
     title: 'VibeMap',
@@ -209,9 +207,12 @@ export const projects = [
     description: 'A modern, responsive portfolio website built with React and Tailwind CSS. Features dark mode, animations, and a clean, professional design.',
     image: 'https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
     tags: ['Web App', 'Visualization'],
-    githubUrl: 'https://github.com',
-    liveUrl: 'https://example.com'
+    githubUrl: 'https://github.com/Rifat-Chowdhury/Rifat-Chowdhury.github.io',
+    liveUrl: 'https://rifat-chowdhury.github.io'
   }
 ];
+
+const tags = [...new Set(projects.flatMap((project) => project.tags))].sort();
+*/
 
 export default Projects;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react';
+import { Send, Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
 import Button from '../components/Button';
 
 const Contact: React.FC = () => {
@@ -22,31 +22,40 @@ const Contact: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/rifatchy001@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          _subject: `Portfolio contact: ${formData.subject}`,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Unable to submit the form.');
+      }
+
+      setFormData({ name: '', email: '', subject: '', message: '' });
       setSubmitStatus({
         success: true,
-        message: 'Thank you for your message! I will get back to you soon.'
+        message: 'Thank you for your message. I will get back to you soon.',
       });
-      
-      // Reset form after successful submission
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+    } catch {
+      setSubmitStatus({
+        success: false,
+        message: 'Your message could not be sent. Please email me directly instead.',
       });
-      
-      // Clear success message after 5 seconds
-      setTimeout(() => {
-        setSubmitStatus(null);
-      }, 5000);
-    }, 1500);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   
   return (
@@ -91,7 +100,8 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-dark-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-dark-600 text-gray-900 dark:text-gray-100"
+                    placeholder="Enter your name"
+                    className="w-full rounded-lg border border-gray-400 bg-gray-50 px-4 py-2 text-gray-900 shadow-sm transition-colors placeholder:text-gray-400 hover:border-gray-500 focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 dark:border-dark-400 dark:bg-dark-900 dark:text-gray-100 dark:placeholder:text-dark-300 dark:hover:border-dark-300"
                   />
                 </div>
                 
@@ -106,7 +116,8 @@ const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-dark-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-dark-600 text-gray-900 dark:text-gray-100"
+                    placeholder="you@example.com"
+                    className="w-full rounded-lg border border-gray-400 bg-gray-50 px-4 py-2 text-gray-900 shadow-sm transition-colors placeholder:text-gray-400 hover:border-gray-500 focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 dark:border-dark-400 dark:bg-dark-900 dark:text-gray-100 dark:placeholder:text-dark-300 dark:hover:border-dark-300"
                   />
                 </div>
                 
@@ -120,7 +131,7 @@ const Contact: React.FC = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-dark-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-dark-600 text-gray-900 dark:text-gray-100"
+                    className="w-full rounded-lg border border-gray-400 bg-gray-50 px-4 py-2 text-gray-900 shadow-sm transition-colors hover:border-gray-500 focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 dark:border-dark-400 dark:bg-dark-900 dark:text-gray-100 dark:hover:border-dark-300"
                   >
                     <option value="">Select a subject</option>
                     <option value="Job Opportunity">Job Opportunity</option>
@@ -142,7 +153,8 @@ const Contact: React.FC = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-2 border border-gray-300 dark:border-dark-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-white dark:bg-dark-600 text-gray-900 dark:text-gray-100"
+                    placeholder="Tell me how I can help."
+                    className="w-full rounded-lg border border-gray-400 bg-gray-50 px-4 py-2 text-gray-900 shadow-sm transition-colors placeholder:text-gray-400 hover:border-gray-500 focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 dark:border-dark-400 dark:bg-dark-900 dark:text-gray-100 dark:placeholder:text-dark-300 dark:hover:border-dark-300"
                   ></textarea>
                 </div>
                 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink } from 'lucide-react';
+import { ArrowRight, Github, ExternalLink } from 'lucide-react';
 import Button from './Button';
 
 interface ProjectCardProps {
@@ -10,6 +10,7 @@ interface ProjectCardProps {
   tags: string[];
   githubUrl?: string;
   liveUrl?: string;
+  detailsTo?: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -19,6 +20,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   tags,
   githubUrl,
   liveUrl,
+  detailsTo,
 }) => {
   return (
     <motion.div 
@@ -49,7 +51,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <h3 className="text-xl font-semibold mb-2">{title}</h3>
         <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow">{description}</p>
         
-        <div className="flex space-x-3 mt-auto">
+        <div className="flex flex-wrap gap-3 mt-auto">
           {githubUrl && (
             <Button 
               href={githubUrl} 
@@ -69,6 +71,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               icon={<ExternalLink className="w-4 h-4" />}
             >
               Live Demo
+            </Button>
+          )}
+
+          {detailsTo && (
+            <Button
+              to={detailsTo}
+              variant="secondary"
+              size="sm"
+              icon={<ArrowRight className="w-4 h-4" />}
+              iconPosition="right"
+            >
+              View Details
             </Button>
           )}
         </div>
