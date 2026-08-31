@@ -105,6 +105,41 @@ const Projects: React.FC = () => {
 const tags = ['Data Analysis', 'SQL', 'Python', 'Visualization', 'Web App', 'Geospatial'];
 
 export const projects = [
+   {
+    id: 'vibemap',
+    title: 'VibeMap',
+    description: 'A data-driven music recommendation system that maps songs by mood and tempo using audio features.',
+    image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80',
+    tags: ['Web App', 'Visualization', 'Geospatial'],
+    githubUrl: 'https://github.com/jeff13in/VibeMap',
+  },
+    {
+    id: 'weather-wise',
+    title: 'WeatherWise',
+    description: 'A full-stack weather application built with React, Express, and SQLite featuring real-time weather, five-day forecasts, location search, GPS support, CRUD operations, error handling, map integration, and CSV/JSON export.',
+    image: 'https://images.unsplash.com/photo-1630260643564-7f9c9c140682?auto=format&fit=crop&w=1000&q=80',
+    tags: ['React', 'Node.js', 'Express', 'SQLite', 'Open-Meteo API', 'REST APIs'],
+    githubUrl: 'https://github.com/Rifat-Chowdhury/WeatherWise',
+    liveUrl: 'https://drive.google.com/file/d/1lhRpKHp2fRTvbv58zpFpOohDKrvfuPKL/view?usp=sharing',
+  },
+   {
+    id: 'weather-trend-forecasting',
+    title: 'Weather Trend Forecasting ',
+    description: 'Analyze the Global Weather Repository dataset, containing daily weather data and over 40 features for cities worldwide. This project applies data cleaning, exploratory analysis, visualization, feature engineering, statistical methods, and machine learning to uncover patterns and forecast future weather trends.',
+    image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=1000&q=80',
+    tags: ['Python', 'Time Series Forecasting', 'Data Visualization'],
+    githubUrl: 'https://github.com/Rifat-Chowdhury/Weather-Trend-Forecasting',
+    liveUrl: 'https://drive.google.com/file/d/1nbKHSTIs7QWejUdKx20x6wd0zyLypb_-/view?usp=sharing',
+  },
+   {
+    id: 'hr-analytics-dashboard',
+    title: 'HR Analytics Dashboard',
+    description: 'A comprehensive dashboard to analyze human resources data, providing both summary views for high-level insights and detailed employee records for in-depth analysis',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80',
+    tags: ['Power BI', 'Python', 'SQL', 'Excel', 'Data Cleaning'],
+    githubUrl: 'https://github.com/Rifat-Chowdhury/HR-Dashboard',
+    liveUrl: 'https://public.tableau.com/views/HRDashboard_17726519990260/HRSummary',
+  },
   {
     id: 'usda-production-analysis',
     title: 'USDA Production Analysis',
@@ -121,15 +156,7 @@ export const projects = [
     tags: ['SQL', 'Data Analysis'],
     githubUrl: 'https://github.com/Rifat-Chowdhury/SQL-LeetCode',
   },
-  {
-    id: 'vibemap',
-    title: 'VibeMap',
-    description: 'A data-driven music recommendation system that maps songs by mood and tempo using audio features.',
-    image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80',
-    tags: ['Web App', 'Visualization', 'Geospatial'],
-    githubUrl: 'https://github.com/jeff13in/VibeMap',
-  }
-  ,
+ 
   {
     id: 'pathfinding-visualizer',
     title: 'Pathfinding Visualizer',
