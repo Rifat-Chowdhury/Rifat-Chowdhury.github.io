@@ -39,7 +39,9 @@ const Contact: React.FC = () => {
         }),
       });
 
-      if (!response.ok) {
+      const result = await response.json() as { success?: boolean | string };
+
+      if (!response.ok || !result.success) {
         throw new Error('Unable to submit the form.');
       }
 
