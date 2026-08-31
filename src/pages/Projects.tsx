@@ -1,13 +1,25 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useSearchParams } from 'react-router-dom';
 import ProjectCard from '../components/ProjectCard';
 
 const Projects: React.FC = () => {
   const [filter, setFilter] = useState<string>('all');
-  
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(project => project.tags.includes(filter));
+  const [searchParams, setSearchParams] = useSearchParams();
+  const projectId = searchParams.get('project');
+  const projectIds = searchParams.get('projects')?.split(',').filter(Boolean) ?? (projectId ? [projectId] : []);
+  const hasProjectFilter = projectIds.length > 0;
+
+  const filteredProjects = hasProjectFilter
+    ? projects.filter(project => projectIds.includes(project.id))
+    : filter === 'all'
+      ? projects
+      : projects.filter(project => project.tags.includes(filter));
+
+  const clearProjectFilter = () => {
+    setSearchParams({});
+    setFilter('all');
+  };
   
   return (
     <div className="pt-20">
@@ -34,7 +46,7 @@ const Projects: React.FC = () => {
           {/* Filter Buttons */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             <button
-              onClick={() => setFilter('all')}
+              onClick={clearProjectFilter}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 filter === 'all'
                   ? 'bg-primary-600 text-white'
@@ -47,7 +59,10 @@ const Projects: React.FC = () => {
             {tags.map((tag, index) => (
               <button
                 key={index}
-                onClick={() => setFilter(tag)}
+                onClick={() => {
+                  setSearchParams({});
+                  setFilter(tag);
+                }}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   filter === tag
                     ? 'bg-primary-600 text-white'
@@ -58,6 +73,20 @@ const Projects: React.FC = () => {
               </button>
             ))}
           </div>
+
+          {hasProjectFilter && filteredProjects.length > 0 && (
+            <div className="mb-8 flex flex-wrap items-center justify-between gap-4 rounded-lg bg-primary-50 px-5 py-4 dark:bg-dark-600">
+              <p className="text-gray-700 dark:text-gray-300">
+                Showing the projects related to this area of interest.
+              </p>
+              <button
+                onClick={clearProjectFilter}
+                className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-400"
+              >
+                View all projects
+              </button>
+            </div>
+          )}
           
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -88,7 +117,7 @@ const Projects: React.FC = () => {
                 No projects found with the selected filter.
               </p>
               <button
-                onClick={() => setFilter('all')}
+                onClick={clearProjectFilter}
                 className="mt-4 text-primary-600 dark:text-primary-400 hover:underline"
               >
                 View all projects

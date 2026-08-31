@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Download, Award, BookOpen, Briefcase, GraduationCap } from 'lucide-react';
+import { ArrowUpRight, Download, Award, BookOpen, Briefcase, GraduationCap } from 'lucide-react';
 import Button from '../components/Button';
 import SkillCard from '../components/SkillCard';
 
@@ -215,17 +215,39 @@ const About: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {interests.map((interest, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="card p-6"
-              >
-                <h3 className="text-xl font-semibold mb-3">{interest.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400">{interest.description}</p>
-              </motion.div>
+              interest.href ? (
+                <motion.a
+                  key={interest.title}
+                  href={interest.href}
+                  target={interest.external ? '_blank' : undefined}
+                  rel={interest.external ? 'noopener noreferrer' : undefined}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="card group block p-6 transition-colors hover:bg-primary-50 dark:hover:bg-dark-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+                  aria-label={`View related work for ${interest.title}`}
+                >
+                  <div className="flex items-start justify-between gap-4 mb-3">
+                    <h3 className="text-xl font-semibold">{interest.title}</h3>
+                    <ArrowUpRight className="w-5 h-5 shrink-0 text-primary-600 dark:text-primary-400 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+                  </div>
+                  <p className="text-gray-600 dark:text-gray-400">{interest.description}</p>
+                  <span className="mt-4 inline-block text-sm font-medium text-primary-600 dark:text-primary-400">View related work</span>
+                </motion.a>
+              ) : (
+                <motion.div
+                  key={interest.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="card p-6"
+                >
+                  <h3 className="text-xl font-semibold mb-3">{interest.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400">{interest.description}</p>
+                </motion.div>
+              )
             ))}
           </div>
         </div>
@@ -240,7 +262,7 @@ const skills = [
     name: 'SQL (PostgreSQL, MySQL, SQLite)',
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-database"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v6c0 1.66 4.03 3 9 3s9-1.34 9-3V5"></path><path d="M3 11v6c0 1.66 4.03 3 9 3s9-1.34 9-3v-6"></path></svg>,
     level: 95,
-    description: 'Writing complex queries, joins, CTEs, and window functions for analysis.'
+    description: 'Writing complex queries, joins, CTEs, and window functions using tools such as DBeaver.'
   },
   {
     name: 'Python (Pandas, NumPy)',
@@ -273,10 +295,22 @@ const skills = [
     description: 'Choosing the right chart to communicate insights clearly.'
   },
   {
+    name: 'Geospatial & Map Integration',
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-map"><path d="M14.106 5.553a3 3 0 0 0-4.212 0l-5 4.808a3 3 0 0 0 0 4.278l5 4.808a3 3 0 0 0 4.212 0l5-4.808a3 3 0 0 0 0-4.278z"></path><path d="M8 12h8"></path><path d="m12 8 4 4-4 4"></path></svg>,
+    level: 75,
+    description: 'Using location search, GPS data, and map-based views in web applications.'
+  },
+  {
     name: 'Statistics',
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-sigma"><path d="M7 4h10"></path><path d="M7 20h10"></path><path d="M7 4 17 12 7 20"></path></svg>,
     level: 85,
     description: 'Hypothesis testing, confidence intervals, and experiment analysis.'
+  },
+  {
+    name: 'Time-Series Forecasting',
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-line-chart"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>,
+    level: 75,
+    description: 'Analyzing trends, seasonality, and future conditions from time-series data.'
   },
   {
     name: 'Data Cleaning & EDA',
@@ -297,28 +331,16 @@ const skills = [
     description: 'Building repeatable data pipelines from raw files to analysis-ready tables.'
   },
   {
-    name: 'DBeaver',
-    icon: <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-terminal"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>,
-    level: 85,
-    description: 'Database exploration, query development, and schema management.'
-  },
-  {
     name: 'Data Storytelling',
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-book-open"><path d="M12 7v14"></path><path d="M3 18a4 4 0 0 1 4-4h5"></path><path d="M21 18a4 4 0 0 0-4-4h-5"></path><path d="M3 6a4 4 0 0 1 4-4h5v5H7a4 4 0 0 0-4 4z"></path><path d="M21 6a4 4 0 0 0-4-4h-5v5h5a4 4 0 0 1 4 4z"></path></svg>,
     level: 90,
     description: 'Turning analysis into clear narratives for stakeholders.'
   },
   {
-    name: 'Git & Version Control',
+    name: 'Git & GitHub',
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-git-branch"><line x1="6" y1="3" x2="6" y2="15"></line><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="6" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>,
     level: 85,
-    description: 'Tracking changes, collaborating, and managing code history.'
-  },
-  {
-    name: 'GitHub',
-    icon: <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>,
-    level: 85,
-    description: 'Repo management, issue tracking, and collaborative workflows.'
+    description: 'Tracking changes, managing repositories, and collaborating through issues and pull requests.'
   },
   {
     name: 'Jira & Miro',
@@ -333,10 +355,16 @@ const skills = [
     description: 'Cloud fundamentals for data storage and analytics workflows.'
   },
   {
-    name: 'HTML & CSS',
+    name: 'Frontend Development',
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-globe"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10"></path></svg>,
+    level: 80,
+    description: 'Building responsive applications with React, TypeScript, HTML, CSS, and Tailwind CSS.'
+  },
+  {
+    name: 'Backend & API Development',
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-server"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"></rect><rect width="20" height="8" x="2" y="14" rx="2" ry="2"></rect><line x1="6" x2="6.01" y1="6" y2="6"></line><line x1="6" x2="6.01" y1="18" y2="18"></line></svg>,
     level: 75,
-    description: 'Basic web structure and styling for reporting and dashboards.'
+    description: 'Building Node.js and Express services, REST APIs, and data integrations.'
   },
   {
     name: 'Java',
@@ -454,10 +482,13 @@ const certifications = [
 const interests = [
   {
     title: 'Business Intelligence & KPI Design',
+    href: '/projects?project=hr-analytics-dashboard',
     description: 'Defining the right metrics for growth, retention, and profitability, then turning them into stakeholder-ready dashboards.'
   },
   {
     title: 'E-commerce Optimization',
+    href: 'https://www.ebay.ca/usr/turbo_gadget_hub',
+    external: true,
     description: 'Improving listings, pricing, and conversion funnels using data-driven experiments and performance analysis.'
   },
   {
@@ -466,6 +497,7 @@ const interests = [
   },
   {
     title: 'Forecasting & Demand Planning',
+    href: '/projects?projects=weather-wise,weather-trend-forecasting',
     description: 'Using time-series trends to plan inventory, promotions, and seasonality-driven campaigns.'
   },
   {
@@ -474,6 +506,7 @@ const interests = [
   },
   {
     title: 'Data Quality & Automation',
+    href: '/projects?projects=hr-analytics-dashboard,usda-production-analysis',
     description: 'Building reliable pipelines and validation checks so reports stay accurate and scalable.'
   },
   {
@@ -490,10 +523,12 @@ const interests = [
   },
   {
     title: 'Algorithmic Problem Solving',
+    href: '/projects?project=pathfinding-visualizer',
     description: 'Applying data structures and algorithms to build efficient, reliable solutions.'
   },
   {
     title: 'Geospatial & Operations Analytics',
+    href: '/projects?projects=vibemap,weather-wise',
     description: 'Using mapping tools and operational data to support planning, tracking, and decision‑making.'
   },
   {
