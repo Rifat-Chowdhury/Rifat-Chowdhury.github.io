@@ -426,7 +426,7 @@ const experience = [
   {
     position: 'Social Media Coordinator',
     company: 'Golive Music Club, Brock University',
-    period: 'May 2022 - Present',
+    period: 'May 2022 - April 2025',
     description: 'Designed and managed digital marketing campaigns, creating promotional content using graphic design tools. Increased social media engagement and event participation.'
   },
   {
