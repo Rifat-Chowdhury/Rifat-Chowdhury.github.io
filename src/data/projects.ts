@@ -68,6 +68,14 @@ export const projects = [
     liveUrl: 'https://www.youtube.com/watch?v=0LPsPId1vhk&feature=youtu.be&themeRefresh=1',
   },
   {
+    id: 'opsbrain',
+    title: 'OpsBrain',
+    description: 'A multi-agent DevOps intelligence platform built with Python, FastAPI, and LangGraph. Coordinates RAG, Monitoring, Infra, and Code agents to combine cited runbook answers, operational metrics, infrastructure state, and GitHub activity, with HTTP/Kafka communication, timeout handling, and a dashboard preview.',
+    image: '/images/opsbrain.jpg',
+    tags: ['Python', 'FastAPI', 'LangGraph', 'RAG', 'PostgreSQL', 'Kafka', 'Prometheus', 'Docker'],
+    githubUrl: 'https://github.com/jeff13in/OpsBrain',
+  },
+  {
     id: 'portfolio-website',
     title: 'Portfolio Website',
     description: 'A modern, responsive portfolio website built with React and Tailwind CSS. Features dark mode, animations, and a clean, professional design.',
