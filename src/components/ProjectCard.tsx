@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Github, ExternalLink } from 'lucide-react';
+import { ArrowRight, Github, ExternalLink, LockKeyhole } from 'lucide-react';
 import Button from './Button';
 
 interface ProjectCardProps {
@@ -11,6 +11,8 @@ interface ProjectCardProps {
   githubUrl?: string;
   liveUrl?: string;
   detailsTo?: string;
+  privateSource?: boolean;
+  imageCaption?: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -21,6 +23,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   githubUrl,
   liveUrl,
   detailsTo,
+  privateSource,
+  imageCaption,
 }) => {
   return (
     <motion.div 
@@ -28,12 +32,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       whileHover={{ y: -5 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="relative overflow-hidden h-48">
+      <div className="relative overflow-hidden h-48 bg-slate-100 dark:bg-dark-900">
         <img 
           src={image} 
           alt={title} 
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+          loading="lazy"
+          decoding="async"
+          className={`w-full h-full transition-transform duration-500 ${imageCaption ? 'object-contain' : 'object-cover hover:scale-110'}`}
         />
+        {imageCaption && (
+          <span className="absolute bottom-2 left-2 rounded bg-dark-900/85 px-2 py-1 text-xs text-white">
+            {imageCaption}
+          </span>
+        )}
       </div>
       
       <div className="p-6 flex flex-col flex-grow">
@@ -52,6 +63,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow">{description}</p>
         
         <div className="flex flex-wrap gap-3 mt-auto">
+          {privateSource && (
+            <span className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <LockKeyhole className="w-4 h-4" aria-hidden="true" />
+              Private source code
+            </span>
+          )}
           {githubUrl && (
             <Button 
               href={githubUrl} 

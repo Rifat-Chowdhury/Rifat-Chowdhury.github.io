@@ -230,6 +230,8 @@ const Home: React.FC = () => {
                 tags={project.tags}
                 githubUrl={project.githubUrl}
                 liveUrl={project.liveUrl}
+                privateSource={project.privateSource}
+                imageCaption={project.imageCaption}
                 detailsTo={`/projects?project=${project.id}`}
               />
             ))}

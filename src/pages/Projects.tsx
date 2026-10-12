@@ -35,8 +35,8 @@ const Projects: React.FC = () => {
             <h1 className="text-3xl md:text-4xl font-bold mb-6">My Projects</h1>
             <p className="text-gray-700 dark:text-gray-300 text-lg mb-8">
               Explore a collection of my recent work spanning data analysis,
-              SQL, visualization, and web applications. Each project highlights
-              a real dataset, a clear approach, and the insights delivered.
+              SQL, visualization, business applications, automation, and game development.
+              Each project highlights a practical problem, the approach taken, and the features built.
             </p>
           </motion.div>
         </div>
@@ -105,6 +105,8 @@ const Projects: React.FC = () => {
                   tags={project.tags}
                   githubUrl={project.githubUrl}
                   liveUrl={project.liveUrl}
+                  privateSource={project.privateSource}
+                  imageCaption={project.imageCaption}
                 />
               </motion.div>
             ))}

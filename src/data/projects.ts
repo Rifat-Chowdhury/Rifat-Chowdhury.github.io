@@ -1,4 +1,43 @@
-export const projects = [
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  githubUrl?: string;
+  liveUrl?: string;
+  privateSource?: boolean;
+  imageCaption?: string;
+}
+
+export const projects: Project[] = [
+  {
+    id: 'sellpoint',
+    title: 'SellPoint',
+    description: 'An inventory and sales management web app connecting Google Sheets to dashboards, stock updates, multi-channel sales, payments, receipts, and customer reporting. Formula-safe writes preserve calculated workbook columns while keeping business records connected.',
+    image: '/images/sellpoint.png',
+    tags: ['Google Apps Script', 'Google Sheets', 'JavaScript', 'Data Visualization', 'Web App'],
+    privateSource: true,
+    imageCaption: 'Illustrative dashboard preview',
+  },
+  {
+    id: 'aeternum',
+    title: 'Aeternum: Warfront',
+    description: 'A Java 21 and JavaFX strategy game with base building, resource management, troop training, and real-time battles. Includes campaign autosaves, an automated live-simulation mode, and a backend harness for scenario validation and save/load checks.',
+    image: '/images/aeternum.png',
+    tags: ['Java', 'JavaFX', 'Maven', 'Game Development', 'Simulation'],
+    privateSource: true,
+    imageCaption: 'Gameplay illustration',
+  },
+  {
+    id: 'job-search-command-center',
+    title: 'Job Search Command Center',
+    description: 'A Python workflow for scoring job leads, prioritizing daily tasks, preparing application materials, and tracking follow-ups through a local dashboard. Adds company-careers discovery and browser-assisted form filling for supported application flows.',
+    image: '/images/job-search-command-center.png',
+    tags: ['Python', 'Playwright', 'Automation', 'Data Analysis', 'Dashboard'],
+    privateSource: true,
+    imageCaption: 'Illustrative dashboard preview',
+  },
   {
     id: 'vibemap',
     title: 'VibeMap',
